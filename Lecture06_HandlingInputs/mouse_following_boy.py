@@ -7,15 +7,11 @@ def character_move():
     global character_x, character_y
     global looking_at
     if x > character_x:
-        character_x += 2
         looking_at = 1
     elif x < character_x:
-        character_x -= 2
         looking_at = 0
-    if y > character_y:
-        character_y += 2
-    elif y < character_y:
-        character_y -= 2
+    character_x += (x - character_x) / 50
+    character_y += (y - character_y) / 50
 
 def handle_events():
     global running
