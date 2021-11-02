@@ -14,14 +14,14 @@ key_event_table = {
 
 # Boy States
 class IdleState:
-    def enter(selfboy, event):
+    def enter(boy, event):
         if event == RIGHT_DOWN:
             boy.velocity += 1
         elif event == LEFT_DOWN:
             boy.velocity -= 1
         elif event == RIGHT_UP:
             boy.velocity -= 1
-        elif event = LEFT_UP:
+        elif event == LEFT_UP:
             boy.velocity += 1
         boy.timer = 1000
 
@@ -31,6 +31,9 @@ class IdleState:
     def do(boy):
         boy.frame = (boy.frame + 1) % 9
         boy.timer -= 1
+        boy.timer -= 1
+        if boy.timer == 0:
+            boy.add_event(SLEEP_TIMER)
 
     def draw(boy):
         if boy.dir == 1:
@@ -46,7 +49,7 @@ class RunState:
             boy.velocity -= 1
         elif event == RIGHT_UP:
             boy.velocity -= 1
-        elif event = LEFT_UP:
+        elif event == LEFT_UP:
             boy.velocity += 1
         boy.dir = boy.velocity
 
