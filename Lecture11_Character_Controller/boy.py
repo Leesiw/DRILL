@@ -29,7 +29,7 @@ class IdleState:
         pass
 
     def do(boy):
-        boy.frame = (boy.frame + 1) % 9
+        boy.frame = (boy.frame + 1) % 8
         boy.timer -= 1
         boy.timer -= 1
         if boy.timer == 0:
@@ -85,7 +85,7 @@ class SleepState:
             boy.image.clip_composite_draw(boy.frame * 100, 300, 100, 100,
                                           3.141592 / 2, '', boy.x - 25, boy.y - 25, 100, 100)
         else:
-            boy.image.clip_composite_draw(boy.frame * 100, 300, 100, 100,
+            boy.image.clip_composite_draw(boy.frame * 100, 200, 100, 100,
                                           -3.141592 / 2, '', boy.x + 25, boy.y - 25, 100, 100)
 
 next_state_table = {
