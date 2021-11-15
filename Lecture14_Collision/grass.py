@@ -15,4 +15,4 @@ class Grass:
 
     # fill here
     def get_bb(self):
-        return 0, 0, 0, 0
+        return 0, 0, 1600-1, 50
