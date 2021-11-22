@@ -83,14 +83,13 @@ def update():
             ball.stop()
             ball.brick_bool = True
 
-
-        for ball_ in balls.copy():
-            if collide(ball, ball_):
-                if ball.brick_bool:
+        if ball.brick_bool:
+            for ball_ in balls.copy():
+                if collide(ball, ball_):
                     ball_.stop()
                     ball_.brick_bool = True
+            ball.move(brick.speed)
 
-        ball.move(brick.speed)
 
         if collide(ball, grass):
             ball.stop()
